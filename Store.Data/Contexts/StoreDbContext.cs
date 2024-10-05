@@ -30,6 +30,8 @@ namespace Store.Data.Contexts
 
         public DbSet<ProductType> ProductTypes { get; set; }
 
+        public DbSet<DeliveryMethod> DeliveryMethods { get; set; }
+
 
     }
 }

@@ -32,6 +32,13 @@ namespace Store.Web
 
             });
 
+            builder.Services.AddDbContext<StoreIdentityDbContext>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("IdentityConnection"));
+
+
+            });
+
             builder.Services.AddSingleton<IConnectionMultiplexer>(config => 
             {
 
@@ -42,6 +49,7 @@ namespace Store.Web
             });
 
             builder.Services.AddApplicationServices();
+            builder.Services.AddIdentityServices();
 
 
 
@@ -65,6 +73,8 @@ namespace Store.Web
             app.UseHttpsRedirection();
 
             app.UseStaticFiles();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
