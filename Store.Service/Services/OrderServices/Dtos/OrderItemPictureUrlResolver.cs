@@ -25,7 +25,7 @@ namespace Store.Service.Services.OrderServices.Dtos
         {
 
 
-            if (!string.IsNullOrEmpty(source.ProductItem.ProductUrl))
+            if (!string.IsNullOrEmpty(source.ProductItem.ProductUrl) || !source.ProductItem.ProductUrl.Contains(source.ProductItem.ProductUrl))
                 return $"{_configuration["BaseUrl"]}/{source.ProductItem.ProductUrl}";
 
             return null;
